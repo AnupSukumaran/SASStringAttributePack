@@ -117,10 +117,10 @@ public extension NSMutableAttributedString {
         return self
     }
     
-    func colorStrings(str1: String, str2: String, fontStyle: UIFont) -> NSMutableAttributedString {
+    func colorStrings(str1: String, str2: String, fontStyle: UIFont, color: UIColor) -> NSMutableAttributedString {
         let text = NSMutableAttributedString(string: str1)
         let text2 = NSMutableAttributedString(string: str2)
-                    .with(color: .red)
+                    .with(color: color)
                     .fontStyle(fontStyle: fontStyle)
         
         text.append(text2)
