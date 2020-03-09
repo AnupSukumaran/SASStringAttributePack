@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SASLogger
 
 public extension NSAttributedString.Key {
     static let myName = NSAttributedString.Key(rawValue: "myCustomAttributeKey")
@@ -85,12 +85,17 @@ public extension NSMutableAttributedString {
         return self
     }
     
+    func add(_ value:String, _ attributes: [NSAttributedString.Key : Any]) -> NSMutableAttributedString {
+        self.append(NSAttributedString(string: value, attributes: attributes))
+        return self
+    }
+    
     func strike( withlineThicknessOf: Int) -> NSMutableAttributedString {
             
             self.addAttribute(.strikethroughStyle, value: withlineThicknessOf, range: NSRange(location: 0, length: self.length))
         
             return self
-        }
+    }
     
     func strike(from:Int,to: Int, withlineThicknessOf: Int) -> NSMutableAttributedString {
         let range = NSRange(location: from, length: to)
