@@ -18,13 +18,18 @@ public extension NSMutableAttributedString {
     var boldFont:UIFont { return UIFont(name: "AvenirNext-Bold", size: fontSize) ?? UIFont.boldSystemFont(ofSize: fontSize) }
     var normalFont:UIFont { return UIFont(name: "AvenirNext-Regular", size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)}
 
-    func newFontSize(fontName: String = "", _ value:String, fSize: CGFloat) -> NSMutableAttributedString {
-        let newboldFont = UIFont(name: fontName, size: fSize) ?? UIFont.boldSystemFont(ofSize: fontSize)
-     
+    func newFontSize(fontName: String = "", stringValue:String, fSize: CGFloat) -> NSMutableAttributedString {
+        
+        let newboldFont = UIFont(name: fontName, size: fSize) ?? UIFont.boldSystemFont(ofSize: fSize)
+        Logger.p("fSize = \(fSize)")
+        Logger.p("fontSize = \(fontSize)")
+        Logger.p("newboldFont = \(newboldFont.pointSize)")
+        
         let attributes:[NSAttributedString.Key : Any] = [
             .font : newboldFont
         ]
-        self.append(NSAttributedString(string: value, attributes:attributes))
+        
+        self.append(NSAttributedString(string: stringValue, attributes:attributes))
         return self
     }
 
