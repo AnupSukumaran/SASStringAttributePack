@@ -52,6 +52,7 @@ public extension NSMutableAttributedString {
         self.append(NSAttributedString(string: value, attributes:attributes))
         return self
     }
+    
     /* Other styling methods */
     func orangeHighlight(_ value:String) -> NSMutableAttributedString {
 
